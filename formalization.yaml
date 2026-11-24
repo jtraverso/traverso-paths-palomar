@@ -1,0 +1,76 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/mathlib-initiative/formalization.yaml/main/schema/formalization.schema.json
+version: "v0.4"
+project:
+  name: "Supporting lines on a Newton slope path"
+  description: >-
+    A local propagation proof for the contact intervals of affine supporting
+    lines. The proof gives the cyclic lattice inclusion in an explicit model
+    of valuative coordinates and yields the exponent floor(2cd/(c+d)) for
+    sums of the transported slope blocks in that model.
+  authors: ["Juan Pablo Traverso Gianini"]
+  license: "Apache-2.0"
+  responsible_maintainers: ["Juan Pablo Traverso Gianini"]
+classification:
+  arxiv: ["math.CO", "math.AG"]
+  msc2020: ["05C38", "14L05", "68V20"]
+sources:
+  - title: "Stratifications of Newton polygon strata and Traverso’s conjectures for p-divisible groups"
+    authors: ["Eike Lau", "Marc-Hubert Nicole", "Adrian Vasiu"]
+    type: "article"
+    id: "doi:10.4007/annals.2013.178.3.1"
+    location: "Annals of Mathematics 178 (2013), 789–834; §5.3, §8.1, Corollary 1.4"
+    relationship: "adapts"
+    note: >-
+      The contact argument uses adjacent slopes directly. The application
+      takes the local no-cancellation property of Lemma 5.16 as a hypothesis
+      of the cyclic-coordinate model and uses a direct estimate on slope blocks.
+    author_endorsement: "not-contacted"
+  - title: "Robust absorption for typed triangles"
+    authors: ["Juan Pablo Traverso Gianini"]
+    type: "preprint"
+    id: "doi:10.5281/zenodo.23502224"
+    location: "Paper II, §6; DoubleHexagon.lean at commit 673c6d4118b5679783bafa7606fd2c611161a254"
+    relationship: "background"
+    note: "Source of the double-hexagon certificate used in the separate transfer experiment."
+status:
+  scope: >-
+    The compared results concern the path of supporting lines and an explicit
+    cyclic rational valuation model. Constructing this model for arbitrary
+    Dieudonné modules and passing from slope blocks to isomorphism numbers of
+    p-divisible groups are outside the compared statements.
+  sorry_count: 0
+  sorry_in_definitions: 0
+  axioms: []
+automation:
+  methods:
+    - method: "agent"
+      models: ["ChatGPT/Codex (OpenAI)"]
+      framework: "Codex and local Lean 4"
+      tool_setup: "Proof exploration, Lean implementation, statement preparation, and mechanical checks."
+  notes: "The author directed the graph translation and selected the scope of the application and transfer."
+fidelity:
+  divergences: >-
+    Proposition 5.12 is represented at the level of cyclic valuative
+    coordinates. The no-cancellation criterion, Frobenius valuation laws,
+    and identification of the integral coordinates are explicit hypotheses.
+review:
+  status: "self-assessed"
+  notes: "Local preparation for review."
+alignment:
+  namespace: "TraversoSlopeGraph"
+  statements:
+    - source: "Combinatorial part of the proof of Proposition 5.14"
+      lean: "TraversoSlopeGraph.contacts_above_reference"
+      module: "Challenge"
+      status: "adapted"
+      note: "An argument on adjacent contact intervals replaces the comparison of envelope widths."
+    - source: "Proposition 5.12"
+      lean: "TraversoSlopeGraph.proposition_5_12_cyclic"
+      module: "Challenge"
+      status: "adapted"
+      note: "The lattice inclusion is proved in the cyclic-coordinate model."
+    - source: "Definition 8.1 and Corollary 1.4"
+      lean: "TraversoSlopeGraph.cyclic_slope_graph_dimension_bound"
+      module: "Challenge"
+      status: "adapted"
+      note: "The exponent controls sums of transported slope blocks under the model hypotheses."
