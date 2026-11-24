@@ -1,0 +1,18 @@
+name: Palomar mechanical preflight
+run-name: Palomar preflight f742040
+on:
+  push:
+    branches: ['codex/palomar-preflight-f742040']
+permissions:
+  contents: read
+jobs:
+  palomar-preflight:
+    uses: PalomarRegistry/PalomarSubmission/.github/workflows/submission.yml@14aa8d6b3c2f14a8540605e37144560b9a00e7e7
+    with:
+      repository: 'jtraverso/traverso-paths-palomar'
+      commit: 'f742040a0c22b2fedb7214bf666292cb9c39e642'
+      pipeline_commit: '14aa8d6b3c2f14a8540605e37144560b9a00e7e7'
+      request_id: 'traversof742'
+      mode: full
+      execution_profile: palomar-standard-v1
+      options: '{"comparator_config_path":"comparator.json","authorization_relationship":"I am a responsible author or maintainer"}'
