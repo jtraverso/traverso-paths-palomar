@@ -35,9 +35,11 @@ sources:
 status:
   scope: >-
     The compared results concern the path of supporting lines and an explicit
-    cyclic rational valuation model. Constructing this model for arbitrary
-    Dieudonné modules and passing from slope blocks to isomorphism numbers of
-    p-divisible groups are outside the compared statements.
+    cyclic rational valuation model. The reference cuts of the path are
+    strictly ordered from zero to the rightmost abscissa of the polygon.
+    Constructing this model for arbitrary Dieudonné modules and passing from
+    slope blocks to isomorphism numbers of p-divisible groups are outside the
+    compared statements.
   sorry_count: 0
   sorry_in_definitions: 0
   axioms: []

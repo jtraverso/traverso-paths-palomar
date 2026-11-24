@@ -22,13 +22,15 @@ open scoped BigOperators
 
 namespace TraversoSlopeGraph
 
-/-- The reference affine lines and the abscissas of their Newton polygon. -/
+/-- Reference affine lines with strictly increasing cuts from `0` to `h`.
+The cuts used by the path are indexed by `0, …, r`. -/
 structure NewtonPath (r h : ℕ) where
   slope : ℕ → ℚ
   intercept : ℕ → ℚ
   cut : ℕ → ℚ
   first_cut : cut 0 = 0
   last_cut : cut r = h
+  cut_lt : ∀ j, j < r → cut j < cut (j + 1)
   slope_lt : ∀ j, j + 1 < r → slope j < slope (j + 1)
   meet : ∀ j, j + 1 < r →
     intercept j + slope j * cut (j + 1) = intercept (j + 1) + slope (j + 1) * cut (j + 1)
